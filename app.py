@@ -257,11 +257,11 @@ if st.button("Run Portfolio Builder"):
     axes[0,1].set_title("Investment per Stock")
     axes[0,1].tick_params(axis='x', rotation=45)
 
-    sns.scatterplot(x='score', y='used_amount', data=portfolio, hue='ticker', s=100, palette="tab20", ax=axes[1,:])
+    sns.scatterplot(x='score', y='used_amount', data=portfolio, hue='ticker', s=100, palette="tab20", ax=axes[1,0])
     axes[1,0].set_title("Score vs Used Amount")
     axes[1,0].set_xlabel("Score")
     axes[1,0].set_ylabel("Used ₹")
-    axes[1,1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
     plt.suptitle("Portfolio Dashboard — Top NIFTY-500 Stocks", fontsize=16, y=1.02)
     st.pyplot(fig)
 
