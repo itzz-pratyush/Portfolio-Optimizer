@@ -234,12 +234,6 @@ if st.button("Run Portfolio Builder"):
     ax.set_title("Score Distribution of All Tickers")
     st.pyplot(fig)
 
-    fig, ax = plt.subplots(figsize=(12, 6))
-    sns.barplot(x='ticker', y='weight', data=portfolio, palette="coolwarm", ax=ax)
-    ax.set_title("Portfolio Weight Distribution")
-    ax.tick_params(axis='x', rotation=45)
-    st.pyplot(fig)
-
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.scatterplot(x='score', y='used_amount', data=portfolio, hue='ticker', s=100, palette="tab20", ax=ax)
     ax.set_title("Score vs Investment Used")
@@ -266,3 +260,4 @@ if st.button("Run Portfolio Builder"):
     st.pyplot(fig)
 
     st.success("All done!")
+
