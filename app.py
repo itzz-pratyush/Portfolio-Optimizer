@@ -165,7 +165,7 @@ def allocate_portfolio(total, df):
 
 # Main logic
 if st.button("Run Portfolio Builder"):
-    with st.spinner("Fetching and validating tickers..."):
+    with st.spinner("Fetching and validating stocks..."):
         TICKERS = get_nifty500_tickers()
         if not TICKERS:
             VALID_TICKERS = [
@@ -177,11 +177,11 @@ if st.button("Run Portfolio Builder"):
             st.warning("Using fallback 20 reliable tickers.")
         else:
             VALID_TICKERS = validate_tickers(TICKERS)
-            st.success(f"Validated {len(VALID_TICKERS)} tickers.")
+            st.success(f"Validated {len(VALID_TICKERS)} stocks.")
 
     with st.spinner("Fetching price data..."):
         price_data = fetch_price_data(VALID_TICKERS, period="1y")
-        st.success(f"Fetched data for {len(price_data)} tickers.")
+        st.success(f"Fetched data for {len(price_data)} stocks.")
 
     with st.spinner("Building features..."):
         full_df = build_feature_dataset(price_data)
@@ -259,5 +259,6 @@ if st.button("Run Portfolio Builder"):
     st.pyplot(fig)
 
     st.success("All done!")
+
 
 
