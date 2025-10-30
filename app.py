@@ -190,8 +190,7 @@ if st.button("Run Portfolio Builder"):
     with st.spinner("Training model..."):
         model, feats, scaler, selector, metrics = train_anova_rf(full_df)
         st.success("Model trained.")
-        st.subheader("Model Performance")
-        st.json(metrics)
+        
 
     with st.spinner("Scoring stocks and allocating portfolio..."):
         scores = score_all(full_df, model, feats, scaler, selector)
@@ -260,4 +259,5 @@ if st.button("Run Portfolio Builder"):
     st.pyplot(fig)
 
     st.success("All done!")
+
 
